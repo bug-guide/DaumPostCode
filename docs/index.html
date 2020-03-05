@@ -33,8 +33,7 @@
   };
 
   function postMessageToAOS(postData) {
-      //window.webkit.messageHandlers.callBackHandler.postMessage(postData);
-      window.android.callBackHandler(PARAMS);
+      window.android.callBackHandler(postData);
   };
   
   var element_layer = document.getElementById('layer');
