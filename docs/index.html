@@ -32,8 +32,12 @@
       window.webkit.messageHandlers.callBackHandler.postMessage(postData);
   };
 
-  function postMessageToAOS(postData) {
-      window.android.callBackHandler(JSON.stringify(postData));
+  // function postMessageToAOS(postData) {
+  //     window.android.callBackHandler(JSON.stringify(postData));
+  // };
+
+  function postMessageToAOS(addr) {
+      window.android.callBackHandler(addr);
   };
   
   var element_layer = document.getElementById('layer');
@@ -84,7 +88,7 @@
         };
         
         if (osCheck() == "android") {
-          window.postMessageToAOS(postData);
+          window.postMessageToAOS(fullRoadAddr);
         } else {
           window.postMessageToiOS(postData);  
         }
