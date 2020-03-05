@@ -33,7 +33,7 @@
   };
 
   function postMessageToAOS(postData) {
-      window.android.callBackHandler(postData);
+      window.android.callBackHandler(JSON.stringify(postData));
   };
   
   var element_layer = document.getElementById('layer');
