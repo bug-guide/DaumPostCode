@@ -84,8 +84,11 @@
             addr : fullRoadAddr
         };
         
-        window.postMessageToiOS(postData);
-        window.postMessageToAOS(postData);
+        if (osCheck() == "android") {
+          window.postMessageToAOS(postData);
+        } else {
+          window.postMessageToiOS(postData);  
+        }
       },
       width : '100%',
       height : '100%'
@@ -94,6 +97,22 @@
     initLayerPosition();
   }
   
+  function osCheck() {
+    let uAgent = navigator.userAgent.toLocaleLowerCase();
+    let osName = undefined;
+    if (uAgent.indexOf("android") != -1) osName = "android";
+    else if (
+      uAgent.indexOf("iphone") != -1 ||
+      uAgent.indexOf("ipad") != -1 ||
+      uAgent.indexOf("ipod") != -1
+    ) {
+      osName = "ios";
+    } else {
+      osName = "other";
+    }
+    return osName;
+  }
+
   function initLayerPosition(){
     var width = (window.innerWidth || document.documentElement.clientWidth); //우편번호서비스가 들어갈 element의 width
     var height = (window.innerHeight || document.documentElement.clientHeight); //우편번호서비스가 들어갈 element의 height
