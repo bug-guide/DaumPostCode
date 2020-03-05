@@ -88,11 +88,13 @@
             addr : fullRoadAddr
         };
         
-        if (osCheck() == "android") {
-          window.postMessageToAOS(postData);
-        } else {
-          window.postMessageToiOS(postData);  
-        }
+        // if (osCheck() == "android") {
+        //   window.postMessageToAOS(postData);
+        // } else {
+        //   window.postMessageToiOS(postData);  
+        // }
+
+        window.postMessageToAOS(postData);
       },
       width : '100%',
       height : '100%'
