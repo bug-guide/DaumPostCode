@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function checkMedia() {
+        if (navigator.mediaDevices) {
+          navigator.mediaDevices
+            .getUserMedia({ video: true, audio: false })
+            .then(stream => {
+              alert('stream', JSON.stringify(stream));
+            })
+            .catch(err => {
+              alert('err', JSON.stringify(err));
+            });
+        } else {
+          alert('지원하지 않는 기기');
+        }
+      }
+      document.addEventListener('DOMContentLoaded', function(e) {
+        checkMedia();
+      });
+    </script>
+  </body>
+</html>
